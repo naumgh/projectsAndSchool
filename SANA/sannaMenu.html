@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name = "viewport" 
+    content = "width = device-width, initial-scale = 1.0, maximum-scale = 1.0, user-scalable = no">
+    <meta http-equiv="X-UA compatable" content = "ie=edge" />
+    <title>hamburger</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: white;
+        }
+
+        .topnav{
+            display:block;
+            background-color: white;
+            overflow: scroll;
+            overflow-x: hidden;
+
+        }
+
+        .navbar-logo{
+            text-align: center;
+            padding-top:16px;
+            padding-bottom:16px;
+
+        }
+
+        .title-nav{
+            text-align:center;
+
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 10px;
+            padding: 0;
+            background-color: white;
+        }
+
+
+        li a {
+            display: block;
+            color: #000;
+            padding: 8px 16px;
+            text-decoration: none;
+            font-size: 16px;
+            font-family: sans-serif;
+
+        }
+
+        .not-active:hover{
+            color:#dfba9f;
+        }
+
+        a.active{
+            text-decoration: none;
+            color:inherit;
+        }
+
+        .active{
+            color:black;
+            background-color: #dfba9f;
+        }
+
+        .x-class{
+            float:right; 
+        }
+
+        .arrow-class{
+            float:right;
+            margin-top:5px;
+            margin-right:10px;
+        }
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position:relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  float:right;
+  position:relative;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {display:block;}
+    
+    </style>
+
+    <script>
+        function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+
+    </script>
+
+  </head>
+
+  <body>
+    <div class="navbar-logo">
+    <img src = "C:\Users\naumh\Desktop\SANA\Sanna_images\logo.png" alt = "logo"
+    style = "width:100px;height:42px">
+    <button type = "button" class = "x-class">
+        <span class = "close">x</span>
+    </button>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <div class="topnav">
+        <ul>
+        
+        <button type = "button" class = "arrow-class" onclick = "myFunction()">
+            <span class = "arrow">></span></button>
+            <div id = "myDropdown" class = "dropdown-content">
+                <a href = '#'>link 1</a>
+                <a href = '#'>link 2</a>
+                <a href = '#'>link 3</a>
+            </div>
+
+        <li><a class = "active" href = '#home'>Home</a></li>
+        <button type = "button" class = "arrow-class">
+            <span class = "arrow">></span>
+        </button>
+        <li><a class = "not-active" href= '#about-us'>About Us</a></li>
+        <button type = "button" class = "arrow-class">
+            <span class = "arrow">></span>
+        </button>
+        <li><a class = "not-active" href="#products">Products</a></li>
+        <button type = "button" class = "arrow-class">
+            <span class = "arrow">></span>
+        </button>
+        <li><a class = "not-active" href='#blog'>Blog</a></li>
+        <button type = "button" class = "arrow-class">
+            <span class = "arrow">></span>
+        </button>
+        <li><a class = "not-active" href='#gallary'>Gallary</a></li>
+        <li><a class = "not-active" href='#contacs'>Contacts</a></li>
+        <button type = "button" class = "arrow-class">
+            <span class = "arrow">></span>
+        </button>
+        <li><a class = "not-active" href='#pages'>Pages</a></li>
+        </ul>
+        <hr>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+    </div>
+
+   <footer>
+    <h1>footer</h1>
+
+   </footer>
+  </body>
+  </html>
