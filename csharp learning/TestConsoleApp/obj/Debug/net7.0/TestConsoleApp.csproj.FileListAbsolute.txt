@@ -1,0 +1,15 @@
+C:\Users\naumh\Desktop\csharp learning\TestConsoleApp\bin\Debug\net7.0\TestConsoleApp.exe
+C:\Users\naumh\Desktop\csharp learning\TestConsoleApp\bin\Debug\net7.0\TestConsoleApp.deps.json
+C:\Users\naumh\Desktop\csharp learning\TestConsoleApp\bin\Debug\net7.0\TestConsoleApp.runtimeconfig.json
+C:\Users\naumh\Desktop\csharp learning\TestConsoleApp\bin\Debug\net7.0\TestConsoleApp.dll
+C:\Users\naumh\Desktop\csharp learning\TestConsoleApp\bin\Debug\net7.0\TestConsoleApp.pdb
+C:\Users\naumh\Desktop\csharp learning\TestConsoleApp\obj\Debug\net7.0\TestConsoleApp.csproj.AssemblyReference.cache
+C:\Users\naumh\Desktop\csharp learning\TestConsoleApp\obj\Debug\net7.0\TestConsoleApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\naumh\Desktop\csharp learning\TestConsoleApp\obj\Debug\net7.0\TestConsoleApp.AssemblyInfoInputs.cache
+C:\Users\naumh\Desktop\csharp learning\TestConsoleApp\obj\Debug\net7.0\TestConsoleApp.AssemblyInfo.cs
+C:\Users\naumh\Desktop\csharp learning\TestConsoleApp\obj\Debug\net7.0\TestConsoleApp.csproj.CoreCompileInputs.cache
+C:\Users\naumh\Desktop\csharp learning\TestConsoleApp\obj\Debug\net7.0\TestConsoleApp.dll
+C:\Users\naumh\Desktop\csharp learning\TestConsoleApp\obj\Debug\net7.0\refint\TestConsoleApp.dll
+C:\Users\naumh\Desktop\csharp learning\TestConsoleApp\obj\Debug\net7.0\TestConsoleApp.pdb
+C:\Users\naumh\Desktop\csharp learning\TestConsoleApp\obj\Debug\net7.0\TestConsoleApp.genruntimeconfig.cache
+C:\Users\naumh\Desktop\csharp learning\TestConsoleApp\obj\Debug\net7.0\ref\TestConsoleApp.dll
