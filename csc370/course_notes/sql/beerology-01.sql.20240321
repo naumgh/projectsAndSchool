@@ -1,0 +1,256 @@
+-- A few tables providing some data with which to write SQL queries
+-- (in some instances of CSC 370).
+-- 
+-- Any resemblance to reality is coincidental.
+---
+
+drop table Beers cascade;
+create table Beers (
+    name  char(40) primary key,
+--    name  char(40),
+    manf  char(25)
+);
+
+insert into Beers values ('Blue', 'Labatt''s');
+insert into Beers values ('Bud', 'Anheuser-Busch');
+insert into Beers values ('Bud Light', 'Anheuser-Busch');
+insert into Beers values ('Longboat Porter', 'Phillips');
+insert into Beers values ('Amnesiac', 'Phillips');
+insert into Beers values ('Blue Buck', 'Phillips');
+insert into Beers values ('Chimay Blue', 'Chimay');
+insert into Beers values ('Hop Circle IPA', 'Phillips');
+insert into Beers values ('Dr Funk', 'Phillips');
+insert into Beers values ('Helios', 'Hoyne');
+insert into Beers values ('Off the Grid', 'Hoyne');
+insert into Beers values ('Dark Matter', 'Hoyne');
+insert into Beers values ('Hoyne Pilsner', 'Hoyne');
+insert into Beers values ('Down Easy Pale Ale', 'Hoyne');
+insert into Beers values ('Devil''s Dream IPA', 'Hoyne');
+insert into Beers values ('Wolf Vine', 'Hoyne');
+insert into Beers values ('Voltage Espresso Stout', 'Hoyne');
+insert into Beers values ('The Big Bock', 'Hoyne');
+insert into Beers values ('Driftwood Ale', 'Driftwood');
+insert into Beers values ('Farmhand Saison', 'Driftwood');
+insert into Beers values ('White Bark Witbier', 'Driftwood');
+insert into Beers values ('Crooked Coast Altbier', 'Driftwood');
+insert into Beers values ('Fat Tug IPA', 'Driftwood');
+insert into Beers values ('Blackstone Porter', 'Driftwood');
+insert into Beers values ('Schneider Weisse', 'G. Schneider und Sohn');
+insert into Beers values ('Schneider Weisse Adventinus', 'G. Schneider und Sohn');
+insert into Beers values ('Guinness', 'Diageo');
+insert into Beers values ('Uncle Ben''s', 'Tartan Brewery');
+
+
+drop table Sells cascade;
+create table Sells (
+    pub  char(30),
+    beer char(40),
+    price real,
+    foreign key(beer) references Beers(name)
+        on delete set null
+        on update cascade
+);
+
+insert into Sells values ('Bard and Banker', 'Blue', null);
+insert into Sells values ('Bard and Banker', 'Amnesiac', 7.25);
+insert into Sells values ('Bard and Banker', 'Guinness', 9.00);
+insert into Sells values ('The Hacked Library', 'Blue', 3.25);
+insert into Sells values ('The Hacked Library', 'Amnesiac', 7.00);
+insert into Sells values ('The Hacked Library', 'Bud Light', 4.00);
+insert into Sells values ('The Hacked Library', 'Guinness', 9.25);
+insert into Sells values ('The Churchill', 'Blue', 4.00);
+insert into Sells values ('The Churchill', 'Chimay Blue', 7.25);
+insert into Sells values ('The Churchill', 'Guinness', 8.75);
+insert into Sells values ('Free Lunch Cafe', 'Blue', 3.25);
+insert into Sells values ('Free Lunch Cafe', 'Uncle Ben''s', 3.25);
+-- insert into Sells values ('Free Lunch Cafe', 'Blue', null);
+-- insert into Sells values ('Free Lunch Cafe', 'Guinness', null);
+insert into Sells values ('Maude Hunter''s', 'Blue Buck', 4.50);
+insert into Sells values ('Maude Hunter''s', 'Guinness', 10.00);
+insert into Sells values ('Moe''s', 'Blue', 4.50);
+insert into Sells values ('Moe''s', 'Off the Grid', 5.00);
+insert into Sells values ('Moe''s', 'Guinness', 8.65);
+
+drop table Likes cascade;
+create table Likes (
+    patron char(20),
+    beer   char(40)
+);
+insert into Likes values ('Cliff', 'Blue');
+insert into Likes values ('Cliff', 'Bud Light');
+insert into Likes values ('Mike', 'Amnesiac');
+insert into Likes values ('Abe', 'Guinness');
+insert into Likes values ('Norm', 'Blue');
+insert into Likes values ('Frasier', 'Chimay Blue');
+insert into Likes values ('Weirdo', 'Slashdot_Ale');
+insert into Likes values ('Weirdo', 'The 12% solution');
+
+drop table Frequents cascade;
+create table Frequents (
+    pub     char(20),
+    patron  char(20)
+--    primary key (patron)
+);
+insert into Frequents values ('Bard and Banker', 'Cliff');
+insert into Frequents values ('Bard and Banker', 'Abe');
+insert into Frequents values ('The Churchill', 'Abe');
+insert into Frequents values ('Bartholomew''s', 'Abe');
+insert into Frequents values ('Bard and Banker', 'Abe');
+insert into Frequents values ('Fernwood Inn', 'Mike');
+insert into Frequents values ('Garrick''s Head', 'Mike');
+insert into Frequents values ('Cheers', 'Norm');
+insert into Frequents values ('Irish Times', 'Norm');
+insert into Frequents values ('Maude Hunter''s', 'Norm');
+insert into Frequents values ('Smuggler''s Cove', 'Mike');
+insert into Frequents values ('The Hacked Library', 'Homer');
+
+drop table Patrons cascade;
+create table Patrons (
+    name    char(20),
+    address char(20),
+    phone   char(16)
+);
+insert into Patrons values ('Cliff', 'Fort Street', '250-555-1212');
+insert into Patrons values ('Frasier', 'Beach Drive', '250-555-1213');
+insert into Patrons values ('Norm', 'Shelbourne Street', '250-555-1214');
+insert into Patrons values ('Mike', 'Scott Street', '250-555-1215');
+insert into Patrons values ('Abe', 'Gettysburg Lane', '250-555-1216');
+insert into Patrons values ('Homer', 'Evergreen Terrace', '250-555-1217');
+
+
+-- Examples to help make clearer the difference between
+-- the kinds of outer joins.
+
+drop table S cascade;
+create table S (
+    A     int,
+    B     int,
+    C     int
+);
+insert into S values (10, 20, 25);
+insert into S values (31, 41, 59);
+
+drop table T cascade;
+create table T (
+    C   int,
+    D   int,
+    E   int
+);
+insert into T values (93, 23, 84);
+insert into T values (59, 62, 64);
+insert into T values (59, 777, 888);
+insert into T values (58, 33, 83);
+
+
+drop table U cascade;
+create table U (
+    A     int,
+    B     int,
+    C     int
+);
+insert into U values (10, 20, 25);
+insert into U values (31, 41, 59);
+insert into U values (26, 53, null);
+insert into U values (58, 97, null);
+
+drop table V cascade;
+create table V (
+    C   int,
+    D   int,
+    E   int
+);
+insert into V values (93, 23, 84);
+insert into V values (59, 62, 64);
+insert into V values (58, 33, 83);
+insert into V values (null, 97, 95);
+
+
+-- ECA-rule example involving insertion into Sells such as (a) rows
+-- may be inserted into Sells where that table's foreign-key relation
+-- on "name" in Beers would normally be violated such that (b) rows
+-- inserted into Beers to ensure the constraint actually will actuall 
+-- hold once the insertion into Sells is completed.
+--
+
+drop function beer_trig_func;
+
+create function beer_trig_func() returns trigger as $beer_trig$
+    begin
+        if NEW.beer not in (select name from beers) then
+            insert into Beers(name) values (NEW.beer);
+        end if;
+        return new; 
+    end;
+$beer_trig$ language plpgsql;
+
+create trigger BeerTrig before insert on Sells
+    for each row
+    execute procedure beer_trig_func();
+
+
+-- ECA rule example where pubs that raise the price of a beer by 
+-- more than one dollar (i.e. where an update is performed on Sells
+-- such that a beer is increased in price as described) will be
+-- pubs whose names are inserted into the NastyPubs relation.
+
+drop table NastyPubs cascade;
+create table NastyPubs (
+    pub    char(40)
+);
+
+drop function price_trig_func;
+
+create function price_trig_func() returns trigger as $price_trig$
+    begin
+        if NEW.price > (OLD.price + 1.00) then
+            insert into NastyPubs(pub) values (NEW.pub);
+        end if;
+        return NEW;
+    end;
+$price_trig$ language plpgsql;
+
+create trigger PriceTrig after update on Sells
+    for each row
+    execute procedure price_trig_func();
+
+
+-- ECA-rule example where average price of all beers in the system
+-- (i.e. beers sold by all pubs) is maintained as a statistic in
+-- in a table called PubStats.
+--
+-- Note: For the average price to be accurate for the running example
+-- in this file, we would need to move the code below to a spot *far*
+-- earlier in the SQL script (i.e. to capture the effect of all
+-- INSERT commands into sells). Therefore the point of the example
+-- below is only meant to demonstrate syntax, and not overall
+-- correctness of this pub-universe simulation. (Unlike a spreadsheet
+-- with its formulas, the order of all SQL statements really does
+-- matter).
+
+drop table PubStats cascade;
+
+create table PubStats (
+    scope           varchar(20),
+    avgbeerprice    numeric(5,2),
+    numberpubs      int,
+    newestpub       varchar(20)
+);
+
+insert into PubStats(scope) values ('all');
+
+drop function average_trig_func;
+
+create function average_trig_func() returns trigger as
+$average_trig$
+    begin
+        update PubStats
+            set avgbeerprice = (select avg(price) from sells)
+            where scope = 'all';
+        return null;
+    end;
+$average_trig$ language plpgsql;
+
+create trigger UpdateAverageTrigger
+    after update or delete or insert on Sells
+    for each statement
+    execute procedure average_trig_func();
