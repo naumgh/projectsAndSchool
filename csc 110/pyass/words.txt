@@ -1,4 +1,0 @@
-For this exercise we will
-read through some words
-in a text file and ignore
-all forms of punctuation

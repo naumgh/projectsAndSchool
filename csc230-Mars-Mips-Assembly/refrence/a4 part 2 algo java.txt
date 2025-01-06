@@ -1,0 +1,19 @@
+ public static count_neighbours(int[][] mem_addr, int row, int column){
+    int sum = 0;
+    int start_row = row - 1;
+    int start_col = column - 1;
+    int end_row = row + 1;
+    int end_col = \\+ 1;
+    for(int i = start_row; i <= end_row; i++){
+      for(int j = start_col; j <= end_col; j++){
+        if(i == row){
+	     if(j == column){
+		continue;	
+             }
+	}
+		sum += mem_addr[i][j];
+      }
+      	        
+   }
+   return sum
+}
