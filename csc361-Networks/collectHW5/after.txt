@@ -1,0 +1,25 @@
+08:58:12.234514 IP h1.37654 > h2.5001: Flags [S], seq 1387933040, win 65504, options [mss 736,sackOK,TS val 2853383227 ecr 0,nop,wscale 7], length 0
+08:58:12.234529 IP h1.37654 > h2.5001: Flags [S], seq 1387933040, win 65504, options [mss 736,sackOK,TS val 2853384231 ecr 0,nop,wscale 7], length 0
+08:58:12.234583 IP h2.5001 > h1.37654: Flags [S.], seq 903537682, ack 1387933041, win 2896, options [mss 736,sackOK,TS val 4269669823 ecr 2853383227,nop,wscale 0], length 0
+08:58:12.234595 IP h2.5001 > h1.37654: Flags [S.], seq 903537682, ack 1387933041, win 2896, options [mss 736,sackOK,TS val 4269669823 ecr 2853383227,nop,wscale 0], length 0
+08:58:12.334692 IP h1.37654 > h2.5001: Flags [.], ack 1, win 512, options [nop,nop,TS val 2853384432 ecr 4269669823], length 0
+08:58:12.334698 IP h1.37654 > h2.5001: Flags [.], ack 1, win 512, options [nop,nop,TS val 2853384432 ecr 4269669823], length 0
+08:58:12.335226 IP h1.37654 > h2.5001: Flags [P.], seq 725:1449, ack 1, win 512, options [nop,nop,TS val 2853384432 ecr 4269669823], length 724
+08:58:12.335229 IP h1.37654 > h2.5001: Flags [P.], seq 1449:2173, ack 1, win 512, options [nop,nop,TS val 2853384432 ecr 4269669823], length 724
+08:58:12.335240 IP h2.5001 > h1.37654: Flags [.], ack 1, win 2896, options [nop,nop,TS val 4269669923 ecr 2853384432,nop,nop,sack 1 {725:1449}], length 0
+08:58:12.335242 IP h2.5001 > h1.37654: Flags [.], ack 1, win 2896, options [nop,nop,TS val 4269669923 ecr 2853384432,nop,nop,sack 1 {725:2173}], length 0
+08:58:23.334112 IP h1.37654 > h2.5001: Flags [P.], seq 1:725, ack 1, win 512, options [nop,nop,TS val 2853395431 ecr 4269669923], length 724
+08:58:23.334176 IP h2.5001 > h1.37654: Flags [.], ack 2173, win 724, options [nop,nop,TS val 4269680922 ecr 2853395431], length 0
+08:58:23.335026 IP h2.5001 > h1.37654: Flags [.], ack 2173, win 1448, options [nop,nop,TS val 4269680923 ecr 2853395431], length 0
+08:58:23.435368 IP h1.37654 > h2.5001: Flags [.], seq 2897:3621, ack 1, win 512, options [nop,nop,TS val 2853395532 ecr 4269680923], length 724
+08:58:23.435412 IP h2.5001 > h1.37654: Flags [.], ack 2173, win 1448, options [nop,nop,TS val 4269681024 ecr 2853395431,nop,nop,sack 1 {2897:3621}], length 0
+08:58:23.535614 IP h1.37654 > h2.5001: Flags [P.], seq 2173:2897, ack 1, win 512, options [nop,nop,TS val 2853395633 ecr 4269681024], length 724
+08:58:23.535681 IP h2.5001 > h1.37654: Flags [.], ack 3621, win 1448, options [nop,nop,TS val 4269681124 ecr 2853395633], length 0
+08:58:23.635936 IP h1.37654 > h2.5001: Flags [.], seq 4345:5069, ack 1, win 512, options [nop,nop,TS val 2853395733 ecr 4269681124], length 724
+08:58:23.635980 IP h2.5001 > h1.37654: Flags [.], ack 3621, win 1448, options [nop,nop,TS val 4269681224 ecr 2853395633,nop,nop,sack 1 {4345:5069}], length 0
+08:58:23.774206 IP h1.37654 > h2.5001: Flags [P.], seq 3621:4345, ack 1, win 512, options [nop,nop,TS val 2853395871 ecr 4269681224], length 724
+08:58:23.774248 IP h2.5001 > h1.37654: Flags [.], ack 5069, win 1448, options [nop,nop,TS val 4269681362 ecr 2853395871], length 0
+08:58:23.874371 IP h1.37654 > h2.5001: Flags [FP.], seq 5069:5793, ack 1, win 512, options [nop,nop,TS val 2853395971 ecr 4269681362], length 724
+08:58:23.874399 IP h2.5001 > h1.37654: Flags [.], ack 5794, win 1448, options [nop,nop,TS val 4269681463 ecr 2853395971], length 0
+08:58:23.882725 IP h2.5001 > h1.37654: Flags [F.], seq 1, ack 5794, win 1448, options [nop,nop,TS val 4269681471 ecr 2853395971], length 0
+08:58:23.983060 IP h1.37654 > h2.5001: Flags [.], ack 2, win 512, options [nop,nop,TS val 2853396080 ecr 4269681471], length 0

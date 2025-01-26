@@ -1,0 +1,32 @@
+All packets are UDP packets
+
+tcpdump -r nat_udp.cap output 
+
+12:18:09.335129 IP h1.45704 > h2.33434: UDP, length 32
+12:18:09.335308 IP h1.58916 > h2.33435: UDP, length 32
+12:18:09.335344 IP r-net2.58916 > h2.33435: UDP, length 32
+
+IP header of packet 2:
+src ip: 192.168.1.100
+dst ip: 10.10.1.100
+
+UDP header of packet 2:
+src port: 58916
+dst port: 33435
+
+IP header of packet 3:
+src ip: 10.10.1.1
+dst ip 10.10.1.100
+
+UDP header of packet 3:
+src port: 58916
+dst port: 33435
+
+The ttl of packet 2 is 2, and ttl for packet 3 is 1. The ports didn't change
+in the trace file, but the checksum did, as well as the src ip. NAT changes
+the source port in a TCP header. But since we are not using TCP with these 3
+packets, there is no change. Additionaly, the purpose of NAT is to conserve IP
+addressses. Private IPs are not routable. Which is why although packet 2 and 3 
+are the same on the surface, in order to do sufficient routing, the private address
+of the network/pc is relpaced by a public ip, and seen by our destination 10.10.1.100.
+

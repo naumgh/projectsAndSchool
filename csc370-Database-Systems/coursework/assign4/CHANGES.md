@@ -1,0 +1,1 @@
+added annotation fields to Campaign, Phase, Event, and Participates

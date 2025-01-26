@@ -1,0 +1,10 @@
+20:26:16.541240 IP6 fe80::fc1f:c8ff:fe7c:1eb6 > ip6-allrouters: ICMP6, router solicitation, length 16
+20:26:16.541264 IP6 fe80::8c6d:1ff:fe5e:9bdf > ip6-allrouters: ICMP6, router solicitation, length 16
+20:27:17.317652 ARP, Request who-has r-net1 tell h1, length 28
+20:27:17.317694 ARP, Reply r-net1 is-at fe:1f:c8:7c:1e:b6 (oui Unknown), length 28
+20:27:17.317702 IP h1.39040 > dns.domain: 33736+ A? www.cs.uvic.ca. (32)
+20:27:19.450977 IP dns.domain > h1.39040: 33736 2/0/0 CNAME rweb.cs.uvic.ca., A 142.104.71.16 (67)
+20:27:19.452391 IP h1.50314 > dns.domain: 29778+ AAAA? rweb.cs.uvic.ca. (33)
+20:27:19.453737 IP dns.domain > h1.50314: 29778 0/1/0 (86)
+20:27:24.637264 ARP, Request who-has h1 tell r-net1, length 28
+20:27:24.637343 ARP, Reply h1 is-at 8e:6d:01:5e:9b:df (oui Unknown), length 28

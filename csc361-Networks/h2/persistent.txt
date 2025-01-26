@@ -1,0 +1,28 @@
+16:33:11.058512 IP 192.168.1.100.45750 > 10.10.1.100.80: Flags [S], seq 1441832865, win 64240, options [mss 1460,sackOK,TS val 3868047293 ecr 0,nop,wscale 7], length 0
+16:33:11.058548 IP 10.10.1.100.80 > 192.168.1.100.45750: Flags [S.], seq 2969660167, ack 1441832866, win 65160, options [mss 1460,sackOK,TS val 2277893105 ecr 3868047293,nop,wscale 7], length 0
+16:33:11.058557 IP 192.168.1.100.45750 > 10.10.1.100.80: Flags [.], ack 1, win 502, options [nop,nop,TS val 3868047293 ecr 2277893105], length 0
+16:33:11.058657 IP 192.168.1.100.45750 > 10.10.1.100.80: Flags [P.], seq 1:148, ack 1, win 502, options [nop,nop,TS val 3868047293 ecr 2277893105], length 147: HTTP: GET /lab2.html HTTP/1.1
+16:33:11.058677 IP 10.10.1.100.80 > 192.168.1.100.45750: Flags [.], ack 148, win 508, options [nop,nop,TS val 2277893105 ecr 3868047293], length 0
+16:33:11.058818 IP 10.10.1.100.80 > 192.168.1.100.45750: Flags [P.], seq 1:614, ack 148, win 508, options [nop,nop,TS val 2277893105 ecr 3868047293], length 613: HTTP: HTTP/1.1 200 OK
+16:33:11.058830 IP 192.168.1.100.45750 > 10.10.1.100.80: Flags [.], ack 614, win 498, options [nop,nop,TS val 3868047293 ecr 2277893105], length 0
+16:33:11.066278 IP 192.168.1.100.45750 > 10.10.1.100.80: Flags [P.], seq 148:330, ack 614, win 501, options [nop,nop,TS val 3868047301 ecr 2277893105], length 182: HTTP: GET /x.png HTTP/1.1
+16:33:11.066300 IP 10.10.1.100.80 > 192.168.1.100.45750: Flags [.], ack 330, win 507, options [nop,nop,TS val 2277893113 ecr 3868047301], length 0
+16:33:11.066418 IP 10.10.1.100.80 > 192.168.1.100.45750: Flags [.], seq 614:2062, ack 330, win 507, options [nop,nop,TS val 2277893113 ecr 3868047301], length 1448: HTTP: HTTP/1.1 200 OK
+16:33:11.066420 IP 10.10.1.100.80 > 192.168.1.100.45750: Flags [P.], seq 2062:3510, ack 330, win 507, options [nop,nop,TS val 2277893113 ecr 3868047301], length 1448: HTTP
+16:33:11.066458 IP 10.10.1.100.80 > 192.168.1.100.45750: Flags [P.], seq 3510:4247, ack 330, win 507, options [nop,nop,TS val 2277893113 ecr 3868047301], length 737: HTTP
+16:33:11.066471 IP 192.168.1.100.45750 > 10.10.1.100.80: Flags [.], ack 3510, win 479, options [nop,nop,TS val 3868047301 ecr 2277893113], length 0
+16:33:11.066476 IP 192.168.1.100.45750 > 10.10.1.100.80: Flags [.], ack 4247, win 474, options [nop,nop,TS val 3868047301 ecr 2277893113], length 0
+16:33:11.070588 IP 192.168.1.100.45750 > 10.10.1.100.80: Flags [P.], seq 330:512, ack 4247, win 501, options [nop,nop,TS val 3868047305 ecr 2277893113], length 182: HTTP: GET /z.png HTTP/1.1
+16:33:11.070622 IP 10.10.1.100.80 > 192.168.1.100.45750: Flags [.], ack 512, win 506, options [nop,nop,TS val 2277893117 ecr 3868047305], length 0
+16:33:11.070788 IP 10.10.1.100.80 > 192.168.1.100.45750: Flags [.], seq 4247:5695, ack 512, win 506, options [nop,nop,TS val 2277893117 ecr 3868047305], length 1448: HTTP: HTTP/1.1 200 OK
+16:33:11.070790 IP 10.10.1.100.80 > 192.168.1.100.45750: Flags [P.], seq 5695:7143, ack 512, win 506, options [nop,nop,TS val 2277893117 ecr 3868047305], length 1448: HTTP
+16:33:11.070841 IP 10.10.1.100.80 > 192.168.1.100.45750: Flags [P.], seq 7143:7873, ack 512, win 506, options [nop,nop,TS val 2277893117 ecr 3868047305], length 730: HTTP
+16:33:11.070855 IP 192.168.1.100.45750 > 10.10.1.100.80: Flags [.], ack 7143, win 479, options [nop,nop,TS val 3868047305 ecr 2277893117], length 0
+16:33:11.070860 IP 192.168.1.100.45750 > 10.10.1.100.80: Flags [.], ack 7873, win 474, options [nop,nop,TS val 3868047305 ecr 2277893117], length 0
+16:33:11.075048 IP 192.168.1.100.45750 > 10.10.1.100.80: Flags [F.], seq 512, ack 7873, win 501, options [nop,nop,TS val 3868047310 ecr 2277893117], length 0
+16:33:11.075123 IP 10.10.1.100.80 > 192.168.1.100.45750: Flags [F.], seq 7873, ack 513, win 506, options [nop,nop,TS val 2277893122 ecr 3868047310], length 0
+16:33:11.075136 IP 192.168.1.100.45750 > 10.10.1.100.80: Flags [.], ack 7874, win 501, options [nop,nop,TS val 3868047310 ecr 2277893122], length 0
+16:33:16.096542 ARP, Request who-has 192.168.1.100 tell 192.168.1.1, length 28
+16:33:16.096560 ARP, Request who-has 192.168.1.1 tell 192.168.1.100, length 28
+16:33:16.096595 ARP, Reply 192.168.1.1 is-at 2e:8a:8a:e7:5a:e4, length 28
+16:33:16.096585 ARP, Reply 192.168.1.100 is-at c2:f8:17:68:f8:58, length 28

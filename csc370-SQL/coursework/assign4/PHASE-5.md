@@ -1,1 +1,0 @@
-created a way to add donations based upon the donators already in the donator table (if I had managed my time better, I would have added the ability to add to donator table as well). Inspired phase 4 re-implementation.

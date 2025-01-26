@@ -1,0 +1,329 @@
+---
+title: "Chapter 9 Homework"
+author: "CW"
+output:
+  word_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r echo = FALSE, message = FALSE}
+library(fpp3)
+library(lmtest)
+library(forecast)
+```
+
+The Chapter 9 homework assignment consists of three exercises, each of which are long to very long. \* Exercise 8 (15 points) \* Exercise 10 (20 points) \* Additional Exercise (20 points)
+
+# Chapter 9 Exercise 8
+
+For this exercise, use the United States GDP series from `global_economy`.
+
+```{r}
+usa <- global_economy %>%
+  filter(Code == "USA")
+
+usa %>%
+  autoplot(GDP)
+
+head(usa)
+```
+
+a.  If necessary, find a suitable Box-Cox transformation for the data.
+
+```{r}
+
+gdp <- usa %>% pull(GDP)
+shapiro_test <- shapiro.test(gdp)
+print(shapiro_test)
+
+qqnorm(gdp)
+qqline(gdp)
+
+#The p-value = 7.739e-05, which implies that we need to apply the BOX-COX model
+
+
+lambda <- BoxCox.lambda(gdp)
+(lambda)
+
+gdp_transformed <- box_cox(gdp, lambda)
+
+usa <- usa %>%
+  mutate(GDP_transformed = gdp_transformed)
+
+usa %>%
+  autoplot(GDP_transformed)
+
+  shapiro_test_transformed <- shapiro.test(gdp_transformed)
+  print(shapiro_test_transformed)
+  qqnorm(gdp_transformed)
+  qqline(gdp_transformed)
+
+
+```
+
+b.  Fit a suitable ARIMA model to the transformed data using `ARIMA()`.
+
+```{r}
+arima110 <- Arima(gdp_transformed, order=c(1, 1, 0))
+arima011 <- Arima(gdp_transformed, order=c(0, 1, 1))
+autoarima <- auto.arima(gdp_transformed, stepwise = FALSE, approximation = FALSE)
+
+
+aic_values <- c(AIC(arima110), AIC(arima011), AIC(autoarima))
+
+
+print(aic_values)
+```
+
+c.  Try some other plausible models by experimenting with the orders chosen.
+```{r}
+arima101 <- Arima(gdp_transformed, order=c(1, 0, 1))
+arima210 <- Arima(gdp_transformed, order=c(2, 1, 0))
+arima202 <- Arima(gdp_transformed, order=c(2, 0, 2))
+sarima111 <- Arima(gdp_transformed, order=c(1, 1, 1), seasonal=list(order=c(1, 0, 1)))
+
+aic_values <- c(AIC(arima101), AIC(arima210), AIC(arima202), AIC(sarima111))
+
+print(aic_values)
+
+```
+
+d.  Choose what you think is the best model and check the residual diagnostics.
+
+```{r}
+
+best_model <- arima101
+
+checkresiduals(best_model)
+
+
+```
+
+e.  Produce forecasts of your fitted model. Do the forecasts look reasonable?
+
+```{r}
+f <- forecast(best_model, h = 12) 
+
+plot(f)
+
+print(f)
+
+```
+
+f.  Compare the results with what you would obtain using `ETS()` (with no transformation).
+
+```{r}
+
+ets_mod <- ets(gdp)
+
+forecast_v_ets <- forecast(ets_mod, h = 12)
+
+plot(forecast_v_ets)
+
+print(forecast_v_ets)
+
+plot(forecast_v_ets$mean, type = "l", col = "blue", ylim = range(c(forecast_v_ets$mean, f$mean)),
+     main = "Comparison of Forecasted GDP (ETS vs ARIMA)", xlab = "Time", ylab = "GDP")
+lines(f$mean, type = "l", col = "red")
+
+```
+
+# Chapter 9 Exercise 10
+
+Choose a series from `us_employment`, the total employment in different industries in the United States.
+
+<!-- You can run the following code to see your options. -->
+
+```{r echo = FALSE, include = FALSE}
+options(max.print = 150)
+unique(us_employment$Title)
+```
+
+a.  Produce an STL decomposition of the data and describe the trend and seasonality.
+
+```{r ex10a}
+
+sum(is.na(employment_foo$Employed))
+
+
+
+
+# Impute missing values. I was stuck with this error for a while 
+employment_foo$Employed <- ifelse(is.na(employment_foo$Employed),
+                                  mean(employment_foo$Employed, na.rm = TRUE),
+                                  employment_foo$Employed)
+
+
+employment_foo %>%
+  autoplot(Employed)
+
+employment_foo %>%
+  model(
+    STL(Employed ~ trend() + season(), robust = TRUE)) %>%
+  components() %>%
+  autoplot()
+
+```
+
+b.  Do the data need transforming? If so, find a suitable transformation.
+
+```{r}
+guerrero_features <- features(employment_foo, features = guerrero, .var = Employed)
+
+
+lambda_guerrero <- guerrero_features$lambda_guerrero
+
+
+print(lambda_guerrero)
+```
+
+c.  Are the data stationary? If not, find an appropriate differencing which yields stationary data.
+
+```{r}
+employment_foo %>%
+  gg_tsdisplay(y = Employed, plot_type = "partial")
+```
+
+d.  Identify a couple of ARIMA models that might be useful in describing the time series. Which of your models is the best according to their AICc values?
+
+```{r}
+
+
+```
+
+e.  Estimate the parameters of your best model and do diagnostic testing on the residuals. Do the residuals resemble white noise? If not, try to find another ARIMA model which fits better.
+
+f.  Forecast the next 3-4 years of data. Get the latest figures from <https://fred.stlouisfed.org/categories/11> to check the accuracy of your forecasts.
+
+<!-- For this one, you should make note of the `Series_ID` from the series that you chose. One way to do that is: -->
+
+```{r echo = FALSE, include = FALSE}
+us_employment %>% filter(Title == "Name of Employment Series Here")
+```
+
+<!-- Once you do that, you can download the data from FRED by entering the appropriate code. For example: -->
+
+<!-- * Data downloaded from https://fred.stlouisfed.org/series/CEU0FooFooFoo -->
+
+<!-- Then you need to read it in as follows, changing the path and spreadsheet name as appropriate. If you create a new project folder for this assignment and put the .csv file in that folder, this is easy.  -->
+
+<!-- Finally, if your forecast model is named `fc_foo` and the best model is "bestfoo" then this is your next step. -->
+
+```{r message=FALSE}
+update <- readr::read_csv("CEU0FooFooFoo.csv") %>%
+  mutate(
+    Month = yearmonth(DATE),
+    Employed = CEU0FooFooFoo
+  ) %>%
+  select(Month, Employed) %>%
+  as_tsibble(index=Month) %>%
+  filter(Month >= min(fc$Month))
+
+fc_foo %>% accuracy(update)
+
+fc_foo %>% 
+  filter(.model=="bestfoo") %>% 
+  autoplot(us_employment %>% filter(year(Month) > 2000)) +
+  geom_line(data=update, aes(x=Month, y=Employed), col='red')
+```
+
+g.  Eventually, the prediction intervals are so wide that the forecasts are not particularly useful. How many years of forecasts do you think are sufficiently accurate to be usable?
+
+# Chapter 9 Exercise Additional Exercise
+  
+a.  Import the data on the Southern Oscillation Index from the provided Excel file. Change the path as needed. These are from http://www.bom.gov.au/climate/enso/soi/ 
+  
+```{r}
+library(readxl)
+library(dplyr)
+library(tsibble)
+library(lubridate)
+
+SOI <- read_excel("C:/Users/naumh/OneDrive/Desktop/sam/Southern+Oscillation+Index.xlsx") %>%
+  mutate(Month = yearmonth(Month)) %>%
+  as_tsibble(index = Month)
+
+print(SOI)
+```
+  
+b.  Plot graphs of the data, and try to identify an appropriate ARIMA model.
+
+```{r}
+
+ggplot(SOI, aes(x = Month, y = SOI)) +  # Adjust 'SOI' to the actual column name if needed
+  geom_line() +
+  labs(title = "Southern Oscillation Index", x = "Month", y = "SOI") +
+  theme_minimal()
+
+soi_ts <- ts(SOI$SOI, start = c(year(min(SOI$Month)), month(min(SOI$Month))), frequency = 12)
+
+fit <- auto.arima(soi_ts)
+
+summary(fit)
+
+
+```
+  
+c.  Do residual diagnostic checking of your ARIMA model. Are the residuals white noise?
+
+```{r}
+checkresiduals(fit)
+```
+  
+d.  Use your chosen ARIMA model to forecast the next four years.
+
+```{r}
+arima_model <- arima(soi_ts, order = c(2,0,1))
+summary(arima_model)
+forecast_values <- forecast(arima_model, h=48)
+print(forecast_values)
+
+autoplot(forecast_values)
+
+
+```
+  
+e.  Now try to identify an appropriate ETS model.
+
+```{r}
+ets_model <- ets(soi_ts)
+ets_model1 <- ets(soi_ts, model = "AAA")
+ets_model2 <- ets(soi_ts, model = "AAN")
+summary(ets_model)
+summary(ets_model1)
+summary(ets_model2)
+
+forecast_values <- forecast(ets_model, h=48)
+forecast_values2 <- forecast(ets_model1, h=48)
+forecast_values3 <- forecast(ets_model2, h=48)
+
+(forecast_values)
+(forecast_values2)
+(forecast_values3)
+```
+  
+f.  Do residual diagnostic checking of your ETS model. Are the residuals white noise?
+```{r}
+
+checkresiduals(ets_model)
+checkresiduals(ets_model1)
+checkresiduals(ets_model2)
+
+```
+  
+g.  Use your chosen ETS model to forecast the next four years.
+
+```{r}
+summary(ets_model1)
+forecast_values <- forecast(ets_model1, h = 48)
+
+print(forecast_values)
+
+
+```
+  
+h.  Which of the two models do you prefer?

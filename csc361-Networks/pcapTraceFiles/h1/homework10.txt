@@ -1,0 +1,10 @@
+1. the output on h1 tells us that we sent an http request to google.com
+and recieved a 301 not found response. We sent another request to www.google.com
+and this time we recieved a response of 200, which indicates that the response was
+successful.
+
+2.the output from R is a direct result of sending a request to www.google.com. The request was rejected at first,
+then it was accepted with a 200. we ripped apart the packets and took the http requests
+
+3.the output from R is a direct result of sending a request to http://www.google.com. The request was rejected at first,
+then it was accepted with a 200. we ripped apart the packets and took the http requests

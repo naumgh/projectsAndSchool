@@ -1,0 +1,55 @@
+--get all volunteers who participate in the campaign green-love
+select CAMPAIGN.Name, VOLUNTEER.Name from CAMPAIGN join PARTICIPATES on CAMPAIGN.CID = PARTICIPATES.CID 
+join VOLUNTEER on VOLUNTEER.VID = PARTICIPATES.VID
+WHERE CAMPAIGN.NAME = 'green-love';
+--now we could get all campaigns that Clark Davidson is involved in
+select CAMPAIGN.Name, VOLUNTEER.Name from CAMPAIGN join PARTICIPATES on CAMPAIGN.CID = PARTICIPATES.CID 
+join VOLUNTEER on VOLUNTEER.VID = PARTICIPATES.VID
+WHERE VOLUNTEER.NAME = 'Clark Davidson';
+-- A SERIES OF POTENTIAL QUERIES -- Are we overbudget?
+
+--first, we can find who is donating to a specific campaign (100), and consider it as an aggregation to our budget
+--select CID, sum(Total) from DONATOR WHERE CID = 100 and total >= 5000 group by CID;
+--select CID, campaignBudget from CAMPAIGN where CID = 100;
+--the result of this query points to the fact that campaign 100 recieved $266 in donator funds
+
+--now we can find the expense of events for the green-love campaign
+select CID, sum(Total) as total from EXPENSE1 join EVENT on EXPENSE1.EVID = EVENT.EVID WHERE CID = 100 group by CID;
+--we can see that the events associated with the green-love campaign have a total of 11021.39 spent. we can do the same for expense2 (cost of phase)
+select CID, sum(Total) as total from EXPENSE2 join PHASE on EXPENSE2.phaseID = PHASE.phaseID WHERE CID = 100 group by CID;
+--now we can add the 'total debt' together and subtract it from donations+budget
+
+
+with deficit as (select combined_tables.CID, SUM(Total) as total_deficit from(
+select CID, sum(Total) as total from EXPENSE1 join EVENT on EXPENSE1.EVID = EVENT.EVID WHERE CID = 100 group by CID 
+UNION ALL 
+select CID, sum(Total) as total from EXPENSE2 join PHASE on EXPENSE2.phaseID = PHASE.phaseID WHERE CID = 100 group by CID) 
+as combined_tables group by CID),
+
+
+b as (select combined_tables2.CID, SUM(campaignBudget) as total_surplus from(
+select CID, sum(Total) as campaignBudget from DONATOR WHERE CID = 100 and total >= 5000 group by CID
+UNION ALL 
+select CID, campaignBudget from CAMPAIGN where CID = 100)
+as combined_tables2 group by CID)
+
+
+--finally, we can subtract the total budget minus the total_sum to get our remaining budget
+--select (select total_surplus from b)-(select total_deficit from deficit) as overUnder;
+
+
+--now we can find list of volunteers who dont have a salary
+--select Name from VOLUNTEER where salary IS NULL;
+-- now we can find the employees with a 'low' salary is 10 per hour
+--SELECT Name from VOLUNTEER where salary = 10;
+-- now we can find where volunteers who are currently participating in some campaign 
+select VID from participates
+intersect
+select VID from VOLUNTEER;
+-- find the minimum donator
+--select name, total from DONATOR where total = (select MIN(total) from DONATOR);
+-- find average budget per campaign phase
+SELECT P.CID, AVG(C.campaignBudget / (SELECT COUNT(*) FROM PHASE WHERE CID = C.CID)) AS average_budget_per_phase
+FROM CAMPAIGN C
+INNER JOIN PHASE P ON C.CID = P.CID
+GROUP BY P.CID;

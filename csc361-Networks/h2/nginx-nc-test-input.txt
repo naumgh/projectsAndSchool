@@ -1,0 +1,8 @@
+GET /notfound HTTP/1.0
+Connection: keep-alive
+
+GET / HTTP/1.0
+Connection: keep-alive
+
+get / http/1.0
+connection: keep-alive
