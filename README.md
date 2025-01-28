@@ -1,6 +1,6 @@
 
 
-This repository highlights my achievements and expertise within the broader field of computer science. Here is a general breakdown of the repo:
+This repository highlights some of my achievements and expertise within the broader field of computer science. Here is a general breakdown of the repo:
 
 **csc110-Python:** Contains Python projects, mostly coming from an Introduction to Programming class.  There is no previous programming knowledge required for this course. The point of these files is to show proficiency in simple data structures like dictionaries, stacks, queues
 
