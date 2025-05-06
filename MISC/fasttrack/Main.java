@@ -26,11 +26,82 @@ public class Main {
         System.out.println(y);
         System.out.println(helloWorld);
 
-        //java operators: arithmatic (usually infix)
+        // java operators: arithmatic (usually infix)
         System.out.println(x % 2);
-        System.out.println(x++);
+        System.out.println(++x); // prefix increment
+        System.out.println(x++); // postfix increment
+        // these two incements are not the same, the first one increments x before
+        // printing it, the second one increments x after printing it
 
+        // assgnment operators: =, +=, -=, *=, /=, %=
+        x += 5;
+        x -= 5;
+        x /= 5;
+        x *= 5;
+        x %= 5;
 
+        // comparison operators: ==, !=, >, <, >=, <= (equals)
+        // logical operators: &&, ||, !
+        // bitwise operators: &, |, ^, ~, <<, >>, >>> (unsigned right shift)
+
+        // branching logic: if, else if, else, switch
+
+        int totalSugarInGlass = 0;
+        int sugar = 2;
+        int maxSugar = 10;
+        /*
+         * if (sugar <= maxSugar) {
+         * totalSugarInGlass += sugar;
+         * } else if (sugar == maxSugar) {
+         * totalSugarInGlass += maxSugar;
+         * } else {
+         * System.out.println("we only allow 10tsp of sugar in a glass");
+         * }
+         * System.out.println("total sugar in glass: " + totalSugarInGlass);
+         * 
+         * // looping logic: for, while, do while
+         * 
+         * while (totalSugarInGlass < maxSugar) {
+         * totalSugarInGlass += sugar;
+         * System.out.println("total sugar in glass: " + totalSugarInGlass);
+         * }
+         * 
+         * do {
+         * totalSugarInGlass += sugar;
+         * System.out.println("total sugar in glass: " + totalSugarInGlass);
+         * } while (totalSugarInGlass < maxSugar);
+         * 
+         * 
+         * // for loop
+         * // dont need any local varaibles in beginning of the loop
+         * for ( ; totalSugarInGlass < maxSugar;
+         * totalSugarInGlass += sugar) {
+         * System.out.println("total sugar in glass: " + totalSugarInGlass);
+         * }
+         * 
+         * // arrays object type, not a primitive type. refrences memory address in the
+         * heap
+         * //stack[numbers = 0x1234]
+         * // heap[numbers = {0:1, 1:2, 2:3, 3:4, 4:5}] built in arrays are of static
+         * size
+         */
+        int[] numbers = new int[5]; // creating objects on the heap
+        numbers[0] = 4;
+        // System.out.println("numbers: " + numbers); // prints the memory address of
+        // the array object
+        int count = 0;
+        for (int i = 0; i < numbers.length; i++, count++) {
+            numbers[i] = count;
+        }
+
+        for (int i = 0; i < numbers.length; i++) {
+            System.out.println(numbers[i]);
+        }
+        // newish java 8 array syntax:
+        int[] numbersNewSyntax = new int[] { 1, 2, 3, 4, 5 }; // creating objects on
+        System.out.println("numbersNewSyntax: " + numbersNewSyntax); // prints the
+        numbersNewSyntax = new int[] { 1, 2, 3, 4, 5, 6, 7 }; // creating objects on the heap
+        System.out.println("numbersNewSyntax: " + numbersNewSyntax); //allocates to new memeory address who knew?
     }
 
 }
