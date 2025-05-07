@@ -1,5 +1,6 @@
 public class Main {
     public static void main(String[] args) {
+
         System.out.println("Hello, World!");
 
         // object types: String, Integer, Double, Character, Boolean, Long, Short, Byte
@@ -98,10 +99,39 @@ public class Main {
             System.out.println(numbers[i]);
         }
         // newish java 8 array syntax:
+
+        // this is stupid, but it works:
         int[] numbersNewSyntax = new int[] { 1, 2, 3, 4, 5 }; // creating objects on
+        int max = (int) (Math.random() * 10) + 1;
+        int current_number = 6;
+        for (int i = 0; i < max; i++, current_number++) {
+            int temp[] = new int[numbersNewSyntax.length + 1];
+            for (int j = 0; j < numbersNewSyntax.length; j++) {
+                temp[j] = numbersNewSyntax[j];
+            }
+            temp[temp.length - 1] = current_number;
+            numbersNewSyntax = temp;
+        }
+
+        for (int i = 0; i < numbersNewSyntax.length; i++) {
+            System.out.println(numbersNewSyntax[i] + "here");
+        }
+
         System.out.println("numbersNewSyntax: " + numbersNewSyntax); // prints the
         numbersNewSyntax = new int[] { 1, 2, 3, 4, 5, 6, 7 }; // creating objects on the heap
         System.out.println("numbersNewSyntax: " + numbersNewSyntax); // allocates to new memeory address who knew?
+        add(5, 6); // calls the add method, which is a static method in this class arguments are
+                   // passed by
+        concat("hello", "world"); // calls the concat method, which is a static method in this class
+    }
+
+    public static int add(int a, int b) { // static method, can be called without creating an object of the class
+        // a and b would be considered 'parameter variables' in this case
+        return a + b;
+    }
+
+    public static String concat(String a, String b) {
+        return a + b;
     }
 
 }
