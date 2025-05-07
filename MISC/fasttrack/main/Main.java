@@ -1,8 +1,18 @@
+package main;
+
+import lemonade.Water;
+import lemonade.LemonJuice;
+import lemonade.Sugar;
+import lemonade.Lemonade;
+
 public class Main {
     public static void main(String[] args) {
+        LemonJuice lemonJuice = new LemonJuice(5, "ml");
+        Sugar sugar = new Sugar(5, "tsp");
+        Water water = new Water(5, "ml");
 
-        System.out.println("Hello, World!");
-
+        Lemonade lemonade = new Lemonade(lemonJuice, sugar, water);
+        System.out.println(lemonade.getLemonJuice());
         // object types: String, Integer, Double, Character, Boolean, Long, Short, Byte
         // (heap)
         // function and method calls are allocated on the stack
@@ -47,9 +57,9 @@ public class Main {
 
         // branching logic: if, else if, else, switch
 
-        int totalSugarInGlass = 0;
-        int sugar = 2;
-        int maxSugar = 10;
+        // int totalSugarInGlass = 0;
+        // int sugar = 2;
+        // int maxSugar = 10;
         /*
          * if (sugar <= maxSugar) {
          * totalSugarInGlass += sugar;
