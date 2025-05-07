@@ -101,7 +101,7 @@ public class Main {
         int[] numbersNewSyntax = new int[] { 1, 2, 3, 4, 5 }; // creating objects on
         System.out.println("numbersNewSyntax: " + numbersNewSyntax); // prints the
         numbersNewSyntax = new int[] { 1, 2, 3, 4, 5, 6, 7 }; // creating objects on the heap
-        System.out.println("numbersNewSyntax: " + numbersNewSyntax); //allocates to new memeory address who knew?
+        System.out.println("numbersNewSyntax: " + numbersNewSyntax); // allocates to new memeory address who knew?
     }
 
 }
