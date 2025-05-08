@@ -9,4 +9,8 @@ public class Sugar {
         this.amount = amount;
         this.unit = unit;
     }
+
+    public int getAmount() {
+        return this.amount;
+    }
 }

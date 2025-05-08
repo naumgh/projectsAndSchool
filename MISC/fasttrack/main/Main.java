@@ -1,5 +1,3 @@
-package main;
-
 import lemonade.Water;
 import lemonade.LemonJuice;
 import lemonade.Sugar;
@@ -11,8 +9,10 @@ public class Main {
         Sugar sugar = new Sugar(5, "tsp");
         Water water = new Water(5, "ml");
 
-        Lemonade lemonade = new Lemonade(lemonJuice, sugar, water);
-        System.out.println(lemonade.getLemonJuice());
+        // Lemonade lemonade = new Lemonade(lemonJuice, sugar, water);
+        // System.out.println(lemonade.getLemonJuice())
+        System.out.println("here is sugar amount " + sugar.getAmount());
+
         // object types: String, Integer, Double, Character, Boolean, Long, Short, Byte
         // (heap)
         // function and method calls are allocated on the stack
