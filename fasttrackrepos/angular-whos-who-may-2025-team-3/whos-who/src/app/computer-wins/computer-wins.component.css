@@ -1,0 +1,36 @@
+.win-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #ffb6b6;
+  text-align: center;
+  user-select: none;
+}
+
+.win-screen h1 {
+  font-family: "Jersey 25", sans-serif;
+  font-size: 4em;
+  font-weight: 400;
+  font-style: normal;
+  margin: 0;
+  padding: 0.5em;
+}
+
+.win-screen button {
+  margin-top: 2rem;
+  padding: 1rem 2rem;
+  font-size: 1.25em;
+  border: none;
+  border-radius: 10px;
+  background-color: #dc3545;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.win-screen button:hover {
+  background-color: #a71d2a;
+}

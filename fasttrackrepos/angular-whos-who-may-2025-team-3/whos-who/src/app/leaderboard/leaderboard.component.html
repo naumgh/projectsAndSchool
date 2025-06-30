@@ -1,0 +1,22 @@
+<div class="leaderboard-card">
+  <h2>Leaderboard</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Player Name</th>
+        <th>Wins</th>
+        <th>Losses</th>
+        <th># of Games</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let player of players">
+        <td>{{ player.name }}</td>
+        <td>{{ player.wins }}</td>
+        <td>{{ player.losses }}</td>
+        <td>{{ player.games }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <button (click)="close()">Close</button>
+</div>

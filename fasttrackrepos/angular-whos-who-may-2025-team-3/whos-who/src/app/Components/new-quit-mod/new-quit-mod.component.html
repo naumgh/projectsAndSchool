@@ -1,0 +1,18 @@
+<div class="game-controller-module">
+  <div class="mod-container">
+    <div>
+      <button (click)="newGame(); buttonPress()"class="new-button">NEW</button>
+    </div>
+    <div>
+      <button (click)="quit(); buttonPress()" class="quit-button">QUIT</button>
+    </div>
+  </div>
+</div>
+
+<div class="confirm-modal" *ngIf="showConfirm">
+  <app-confirm-screen
+    [choice]="choice"
+    [choiceText]="choiceText"
+    (close)="onCloseConfirm()"
+  ></app-confirm-screen>
+</div>

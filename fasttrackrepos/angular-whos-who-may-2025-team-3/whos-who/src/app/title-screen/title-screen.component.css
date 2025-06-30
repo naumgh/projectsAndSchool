@@ -1,0 +1,53 @@
+.title-page {
+  display: flex;
+  justify-content: center; /* center horizontally */
+  align-items: center; /* center vertically */
+  height: 100%;
+  background-color: #b6ffea; /* blue background */
+  text-align: center;
+  user-select: none;
+}
+
+.title-page-container {
+  padding: 2rem;
+  border-radius: 12px;
+  min-width: 300px;
+}
+
+.text {
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2 {
+  font-family: "Jersey 25", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.settings-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5); /* translucent overlay */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.leaderboard-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}

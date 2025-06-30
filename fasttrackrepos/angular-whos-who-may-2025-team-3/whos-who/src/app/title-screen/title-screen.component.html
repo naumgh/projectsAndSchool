@@ -1,0 +1,37 @@
+<div class="title-page">
+  <div class="title-page-container">
+    <h2 style="font-size: 5em" class="text">WELCOME TO</h2>
+    <h1 style="font-size: 8em" class="text">BATTLESHIP</h1>
+    <br />
+    <h4 style="font-size: 1.25em" class="text">NAME</h4>
+    <app-input-field
+      (nameChange)="onNameChange($event)"
+      (keydown.enter)="navigateToShipsPage()"
+    ></app-input-field>
+    <br />
+
+    <app-link-button
+      [linkText]="playerName ? '/place-ships' : ''"
+      [text]="'START NEW GAME'"
+      [disabled]="!playerName"
+      (click)="buttonPress()"
+    ></app-link-button>
+    <br />
+    <app-link-button
+      text="LEADERBOARD"
+      (click)="toggleLeaderboard(); buttonPress()"
+    ></app-link-button>
+    <div class="leaderboard-modal" *ngIf="showLeaderboard">
+      <app-leaderboard [close]="toggleLeaderboard.bind(this)"></app-leaderboard>
+    </div>
+    <br />
+    <app-link-button
+      [linkText]="''"
+      text="SETTINGS"
+      (click)="toggleSettings(); buttonPress()"
+    ></app-link-button>
+    <div class="settings-modal" *ngIf="showSettings">
+      <app-settings (close)="toggleSettings()"></app-settings>
+    </div>
+  </div>
+</div>

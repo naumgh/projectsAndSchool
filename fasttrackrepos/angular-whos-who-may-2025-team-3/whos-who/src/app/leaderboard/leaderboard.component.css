@@ -1,0 +1,19 @@
+.leaderboard-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  width: 500px;
+  text-align: center;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 0.5rem;
+}

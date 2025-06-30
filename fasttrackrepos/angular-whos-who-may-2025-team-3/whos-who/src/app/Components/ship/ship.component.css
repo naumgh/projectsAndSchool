@@ -1,0 +1,23 @@
+.ship-wrapper {
+  cursor: pointer;
+  border: 2px solid transparent;
+  padding: 4px;
+  text-align: center;
+}
+
+.ship-wrapper.selected {
+  border-color: blue;
+}
+
+.ship-wrapper.placed {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.ship {
+  width: 100px;
+  height: 50px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}

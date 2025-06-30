@@ -1,0 +1,49 @@
+.confirm-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  width: 500px;
+  text-align: center; 
+  border-top: 10px solid #e6ecff;
+}
+
+.no-button{
+  color: white;
+  background-color: red;
+  font-size: 1.25em;
+  min-width: 4vw;
+  min-height: 3.5vh;
+  border: 1px solid rgb(221, 221, 221);
+  border-radius: 5px;
+  font-family: "sans-serif";
+  transition: background-color 0.2s ease, min-width 0.2s ease, min-height 0.2s ease;
+  margin: 0.5rem;
+}
+
+.no-button:hover{
+  background-color: rgb(255, 103, 103);
+  min-width: 4.2vw;
+  min-height: 3.7vh;
+  cursor: pointer;
+}
+
+.yes-button{
+  color: black;
+  background-color: white;
+  font-size: 1.25em;
+  min-width: 4vw;
+  min-height: 3.5vh;
+  border: 1px solid rgb(221, 221, 221);
+  border-radius: 5px;
+  font-family: "sans-serif";
+  transition: background-color 0.2s ease, min-width 0.2s ease, min-height 0.2s ease;
+  margin: 0.5rem;
+}
+
+.yes-button:hover{
+  background-color: rgb(218, 218, 218);
+  min-width: 4.2vw;
+  min-height: 3.7vh;
+  cursor: pointer;
+}
+

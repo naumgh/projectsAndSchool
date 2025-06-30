@@ -1,0 +1,50 @@
+.confirm-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5); /* translucent dark overlay */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.game-controller-module {
+  position: fixed;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+
+.mod-container {
+  background-color: #545454;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 0 10px 10px 0;
+  width: 120px;
+  flex-direction: column;
+  align-items: center;
+  height: 150px; 
+}
+
+.new-button,
+.quit-button {
+  width: 100%;
+  padding: 10px 10px;
+  font-weight: bold;
+  border: 2px solid black;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.new-button {
+  background-color: #e4f220;
+}
+
+.quit-button {
+  background-color: #ff5f5f;
+  color: white;
+}

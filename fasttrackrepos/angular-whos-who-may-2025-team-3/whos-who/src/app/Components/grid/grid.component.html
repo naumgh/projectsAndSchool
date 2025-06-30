@@ -1,0 +1,24 @@
+<div class="grid-wrapper">
+  <!-- Column Labels -->
+  <div class="header-row">
+    <div class="header-cell"></div>
+    <div class="header-cell" *ngFor="let col of colLabels">{{ col }}</div>
+  </div>
+
+  <!-- Grid Rows -->
+  <div class="grid-row" *ngFor="let row of grid; let rowIndex = index">
+    <div class="header-cell">{{ rowLabels[rowIndex] }}</div>
+    <div
+      class="grid-cell"
+      *ngFor="let cell of row"
+      [ngClass]="cell.status"
+      (click)="onCellClick(cell)"
+      [class.click-disabled]="cellClickDisabled"
+    >
+
+      <span *ngIf="cell.status === 'miss'">❌</span>
+      <span *ngIf="cell.status === 'hit'">🔥</span>
+      <span *ngIf="showBoats && cell.hasBoat && cell.status === 'empty'">{{ cell.boatEmoji }}</span>
+    </div>
+  </div>
+</div>

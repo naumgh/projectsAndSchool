@@ -1,0 +1,16 @@
+<div class="confirm-card">
+  <h2>Confirm</h2>
+
+  <h3>Are you sure you want to {{ choice }}?</h3>
+  <p>{{ choiceText }}</p>
+
+  <div *ngIf="choice === 'quit'">
+    <button (click)="close.emit(); buttonPress()" class="no-button">NO</button>
+    <a routerLink="/home"><button class="yes-button" (click)="buttonPress()">YES</button></a>
+  </div>
+
+  <div *ngIf="choice === 'start a new game'">
+    <button (click)="close.emit(); buttonPress()" class="no-button">NO</button>
+    <a routerLink="/place-ships"><button class="yes-button" (click)="buttonPress()">YES</button></a>
+  </div>
+</div>

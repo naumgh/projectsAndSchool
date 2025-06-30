@@ -1,0 +1,21 @@
+<div class="settings-card">
+  <h2>Game Settings</h2>
+
+  <label>
+    Sound
+    <input type="checkbox" [(ngModel)]="sound" (change)="toggleSound()" />
+  </label>
+  <br />
+  <label>
+    Difficulty:
+    <select [(ngModel)]="settings.difficulty">
+      <option value="easy">Easy</option>
+      <option value="medium">Medium</option>
+      <option value="hard">Hard</option>
+    </select>
+  </label>
+  <br /><br />
+
+  <button (click)="saveSettings(); buttonPress()">Save</button>
+  <button (click)="close.emit(); buttonPress()">Cancel</button>
+</div>

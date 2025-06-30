@@ -1,0 +1,40 @@
+<div class="game-screen">
+  <div>
+    <app-battleship-header></app-battleship-header>
+    <img
+      src="assets/images/settings.png"
+      alt="settings-icon"
+      class="settings-icon"
+      (click)="toggleSettings()"
+    />
+
+    <div class="settings-modal" *ngIf="showSettings">
+      <app-settings (close)="toggleSettings()"></app-settings>
+    </div>
+
+    <div class="grid-row">
+      <div class="grid-container">
+        <h2>Player's Grid</h2>
+        <app-grid [grid]="playerGrid" [showBoats]="true"> </app-grid>
+      </div>
+
+      <div class="grid-container">
+        <h2>Computer's Grid</h2>
+        <app-grid
+          [grid]="opponentGrid"
+          [showBoats]="false"
+          [cellClickDisabled]="isMoveInProgress"
+          (cellClicked)="onOpponentCellClick($event)">
+        </app-grid>
+
+        <div *ngIf="isMoveInProgress" class="loading-indicator">
+          Waiting for opponent response...
+        </div>
+      </div>
+    </div>
+
+    <div class="game-controller-module">
+      <app-new-quit-mod></app-new-quit-mod>
+    </div>
+  </div>
+</div>

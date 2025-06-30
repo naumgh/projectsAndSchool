@@ -1,0 +1,54 @@
+<div class="header-wrapper">
+  <app-battleship-header></app-battleship-header>
+</div>
+
+<div class="game-controller-module">
+  <app-new-quit-mod></app-new-quit-mod>
+</div>
+
+<div class="placement-container">
+  <img
+    src="assets/images/settings.png"
+    alt="settings-icon"
+    class="settings-icon"
+    (click)="toggleSettings()"
+  />
+
+  <div class="settings-modal" *ngIf="showSettings">
+    <app-settings (close)="toggleSettings()"></app-settings>
+  </div>
+ <div class="ship-inventory">
+  <button (click)="toggleOrientation()" class="orientation-btn">
+    Toggle Orientation ({{ orientation }})
+  </button>
+  <h2>Place Your Ships</h2>
+
+  <div class="ship-grid">
+    <div *ngFor="let ship of ships" class="ship-slot">
+      <label>{{ ship.name }}</label>
+      <img
+        class="ship-image"
+        [src]="ship.imageUrl"
+        [class.disabled]="ship.isPlaced"
+        [class.selected]="selectedShip?.name === ship.name"
+        [style.cursor]="ship.isPlaced ? 'not-allowed' : 'pointer'"
+        (click)="!ship.isPlaced && onShipSelected(ship.name)"
+      />
+      <button
+        *ngIf="ship.isPlaced"
+        (click)="undoPlacement(ship)"
+        class="undo-btn"
+      >
+        Undo
+      </button>
+    </div>
+  </div>
+</div>
+  <div class="game-grid">
+    <app-grid [grid]="grid" (cellClicked)="onCellClick($event)"></app-grid>
+  </div>
+</div>
+
+<button class="start-btn fixed-start-btn" [disabled]="!allShipsPlaced()" (click)="startGame()">
+  Start Game
+</button>
