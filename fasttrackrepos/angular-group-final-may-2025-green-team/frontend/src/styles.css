@@ -1,0 +1,84 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Styling for page title */
+.page-title {
+  display: flex;
+  flex-direction: column;
+  margin-left: 25%;
+  margin-right: 25%;
+  padding-top: 50px;
+  padding-bottom: 20px;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #deb992;
+  color: #1ba098;
+}
+
+/* This is the text color and font family shown in the wireframe for almost all headers options and titles */
+.header-text {
+  color: #1ba098;
+  font-family: "Poiret One", sans-serif;
+  font-style: normal;
+}
+
+/* Wireframe background color */
+.main-background {
+  min-height: 100vh;
+  background-color: #051622;
+}
+
+/* The following options are for the dropdown menu styling used across the website (they all look the same) */
+.dropdown {
+  /* padding: 20px 20px; */
+  font-size: 24px;
+  font-weight: bold;
+  font-family: "Mulish", sans-serif;
+  color: #5533ff;
+  background-color: white;
+  border: none;
+  border-radius: 12px;
+  /* appearance: none; */
+  text-align: center;
+  width: 240px;
+}
+
+.dropdown:focus {
+  outline: none;
+  border-color: #deb992;
+  box-shadow: 0 0 8px rgba(222, 185, 146, 0.5);
+}
+
+.dropdown option {
+  background-color: white;
+  color: black;
+}
+
+.navbar-nav .nav-link {
+  color: #1ba098;
+  font-size: 36px;
+  margin-left: 24px;
+}
+
+.blue-button {
+  background-color: #1ba098;
+  color: rgba(255, 255, 255, 0.75);
+  border: none;
+  border-radius: 10px;
+  width: 8vw;
+  height: 5vh;
+  margin-top: 15px;
+}
+
+.yellow-button {
+  background-color: #deb992;
+  color: rgba(0, 0, 0, 0.5);
+  border: none;
+  border-radius: 10px;
+  width: 8vw;
+  height: 5vh;
+}

@@ -1,0 +1,6 @@
+<div class="overlay" (click)="onBackdropClick($event)">
+    <div class="custom-modal" (click)="$event.stopPropagation()">
+        <button class="close-btn" (click)="onClose()">X</button>
+        <ng-content></ng-content> <!-- <- this renders whatever is inside <app-modal> -->
+    </div>
+</div>

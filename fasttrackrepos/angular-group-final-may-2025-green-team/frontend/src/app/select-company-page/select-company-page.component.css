@@ -1,0 +1,38 @@
+.select-company-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.select-company-header {
+    font-size: 72px;
+    letter-spacing: 3px;
+    margin-top: 30vh;
+}
+
+.submit-button {
+    height: 60px;
+    width: 160px;
+    padding: 10px;
+    background-color: transparent;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    font-family: 'Mulish', sans-serif;
+    border: 2px solid #1BA098;
+    border-radius: 40px;
+    cursor: pointer;
+    margin-top: 7vh;
+    transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
+}
+
+.submit-button:hover {
+    background-color: #1BA098;
+    color: white;
+    box-shadow: 0 0 10px rgba(27, 160, 152, 0.4);
+}
+
+.company-dropdown {
+    height: 50px;
+    margin-top: 40px;
+}

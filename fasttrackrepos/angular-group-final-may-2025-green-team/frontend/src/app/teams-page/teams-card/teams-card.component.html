@@ -1,0 +1,13 @@
+<div class="team-card" (click)="onCardClick()">
+    <div class="card-header">
+        <div class="team-name">{{team.name}}</div>
+        <!-- <div class="projects-info"># of Projects: {{team.projectsCount}}</div> -->
+        <div class="projects-info"># of Projects: {{ team.projectCount }}</div>
+    </div>
+
+    <div class="members-label">Members</div>
+
+    <div class="members-list">
+        <span class="member" *ngFor="let member of team.teammates"> {{ getMemberName(member) }} </span>
+    </div>
+</div>

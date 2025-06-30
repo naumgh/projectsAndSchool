@@ -1,0 +1,80 @@
+<div class="main-background">
+    <app-navbar></app-navbar>
+
+    <div class="container">
+        <div class="header-row">
+            <button (click)="goBackToTeams()" class="back-button">&lt; Back</button>
+            <h1 class="projects-header header-text">Projects for {{teamName}} </h1>
+        </div>
+
+        <div class="new-button-container" *ngIf="isAdmin">
+            <button (click)="openCreateProjectModal()" class="new-button blue-button">New</button>
+        </div>
+
+        <div class="project-container">
+            <div *ngFor="let project of projects" class="project-box">
+                <div class="project-info">
+                    <div class="title-row">
+                        <h3 class="project-title"> {{project.name}} </h3>
+                        <span class="project-status" [ngClass]="{
+                            'active': project.active,
+                            'inactive': !project.active
+                        }"> {{project.active ? 'Active' : 'Inactive' }} </span>
+                    </div>
+                    <p class="project-description"> {{project.description}} </p>
+                </div>
+                <button class="edit-button yellow-button" (click)="openEditProjectModal(project)"> Edit </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Create Project Modal -->
+    <app-modal *ngIf="showCreateProjectModal" (close)="closeCreateProjectModal()">
+        <h3>Create New Project</h3>
+        <form [formGroup]="newProjectForm" (ngSubmit)="submitNewProject()">
+            <!-- Form -->
+            <label for="projectName">Project Name</label>
+            <input id="projectName" type="text" formControlName="projectName" placeholder="Enter project name" />
+
+            <label for="description">Description</label>
+            <input id="description" type="text" formControlName="description" placeholder="Enter description" />
+
+            <!-- Button -->
+            <button type="submit" [disabled]="newProjectForm.invalid" class="blue-button">
+                Submit
+            </button>
+        </form>
+    </app-modal>
+
+    <!-- Edit Project Modal -->
+    <app-modal *ngIf="showEditProjectModal" (close)="closeEditProjectModal()">
+        <h3>Edit Project</h3>
+        <form [formGroup]="editProjectForm" (ngSubmit)="submitEditProject()">
+            <label for="editProjectName">Project Name</label>
+            <input id="editProjectName" type="text" formControlName="projectName" placeholder="Enter project name" />
+
+            <label for="editDescription">Description</label>
+            <input id="editDescription" type="text" formControlName="description" placeholder="Enter description" />
+
+            <div class="form-col">
+                <label>Active?</label>
+
+                <div class="dropdown" (click)="toggleActiveDropdown()" tabindex="0" (blur)="activeDropdownOpen = false">
+                    <div class="dropdown-selected">
+                        {{ editProjectForm.get('active')?.value === null ? 'Pick an option' :
+                        (editProjectForm.get('active')?.value ? 'Yes' : 'No') }}
+                    </div>
+
+                    <div class="dropdown-list" *ngIf="activeDropdownOpen">
+                        <div class="dropdown-item" (mousedown)="selectActive(true)">Yes</div>
+                        <div class="dropdown-item" (mousedown)="selectActive(false)">No</div>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" [disabled]="editProjectForm.invalid" class="blue-button">
+                Save Changes
+            </button>
+        </form>
+    </app-modal>
+</div>

@@ -1,0 +1,99 @@
+<div class="main-background">
+    <app-navbar></app-navbar>
+
+    <!-- Page Title -->
+    <div class="page-title user-title-container">
+        <h2 class="header-text user-title">User Registry</h2>
+        <p class="header-sub-text">A general view of all members in your organization</p>
+    </div>
+
+    <!-- User Table -->
+    <div class="center-table">
+        <table class="user-table">
+            <!-- Top Row -->
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Active</th>
+                    <th>Admin</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+
+            <!-- Table Body -->
+            <tbody>
+                <tr *ngFor="let user of users">
+                    <td> {{ user.profile.firstName }} {{ user.profile.lastName }} </td>
+                    <td> {{ user.profile.email }} </td>
+                    <td class="active-status" [ngClass]="{'status-yes': user.active, 'status-no': !user.active}">
+                        {{user.active ? 'YES' : 'NO'}}
+                    </td>
+                    <td class="admin-status" [ngClass]="{'status-yes': user.admin, 'status-no' : !user.admin}">
+                        {{ user.admin ? 'YES' : 'NO' }}
+                    </td>
+                    <td> {{user.status}} </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Add User Button -->
+    <button class="blue-button add-user-button" (click)="openAddUser()">Add User</button>
+
+    <!-- Add User Overlay -->
+    <app-modal *ngIf="showUserOverlay" (close)="closeAddUser()">
+        <h3>Add New User</h3>
+
+        <!-- User Form -->
+        <form [formGroup]="userForm" (ngSubmit)="submitNewUser()">
+            <!-- First and Last Names -->
+            <div class="form-row">
+                <input type="text" formControlName="firstName" placeholder="first name" />
+                <input type="text" formControlName="lastName" placeholder="last name" />
+            </div>
+
+            <!-- Email Row -->
+            <div class="form-row">
+                <input type="text" formControlName="email" placeholder="email" />
+            </div>
+
+            <!-- Phone Number -->
+            <div class="form-row">
+                <input type="tel" formControlName="phone" placeholder="phone" />
+            </div>
+
+            <!-- Password -->
+            <div class="form-row">
+                <input type="password" formControlName="password" placeholder="password" />
+                <input type="password" formControlName="confirmPassword" placeholder="confirm password" />
+            </div>
+
+            <!-- Admin? -->
+            <div class="form-col">
+                <label>Make user an admin role?</label>
+
+                <!-- Dropdown -->
+                <div class="dropdown" (click)="toggleDropdown()" tabindex="0" (blur)="dropdownOpen = false">
+                    <div class="dropdown-selected">
+                        {{ userForm.get('adminRole')?.value === null ? 'Pick an option' :
+                        (userForm.get('adminRole')?.value ? 'true' : 'false') }}
+                    </div>
+
+                    <div class="dropdown-list" *ngIf="dropdownOpen">
+                        <div class="dropdown-item" (mousedown)="selectRole(true)">true</div>
+                        <div class="dropdown-item" (mousedown)="selectRole(false)">false</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Message if passwords don't match -->
+            <div *ngIf="userForm.errors?.['passwordMismatch']" class="error-message">
+                Passwords do not match.
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" [disabled]="userForm.invalid" class="blue-button">Submit</button>
+        </form>
+    </app-modal>
+</div>

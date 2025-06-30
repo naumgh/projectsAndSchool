@@ -1,0 +1,19 @@
+<div class="main-background">
+    <div class="login-container">
+        <div class="login-header header-text">
+            <h1 class="primary-login-header">COOK SYSTEMS</h1>
+            <h2 class="secondary-login-header">Project Management Software</h2>
+        </div>
+
+        <div class="login-form-box">
+            <form class="login-form" (ngSubmit)="onLogin()">
+                <img src="assets/gold-swirl.png" alt="Login-Image" class="login-image" />
+                <input type="username" placeholder="username" class="login-input header-text" name="username" [(ngModel)]="username"
+                    required />
+                <input type="password" placeholder="password" class="login-input header-text" name="password" [(ngModel)]="password"
+                    required />
+                <button type="submit" class="login-button">LOGIN</button>
+            </form>
+        </div>
+    </div>
+</div>

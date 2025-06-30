@@ -1,0 +1,42 @@
+.announcement-card {
+    width: 600px;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #0B2D45;
+    padding: 20px;
+    border-radius: 15px;
+    color: #fff;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.div1 {
+    float: left;
+    /* Floats the div to the left */
+    width: 50%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.div2 {
+    float: right;
+    /* Floats the div to the right */
+    width: 50%;
+    padding: 10px;
+    box-sizing: border-box;
+    text-align: right;
+}
+
+.announcement-body {
+    margin-top: 10px;
+    text-align: left;
+    padding-left: 9px;
+    width: 100%;
+}

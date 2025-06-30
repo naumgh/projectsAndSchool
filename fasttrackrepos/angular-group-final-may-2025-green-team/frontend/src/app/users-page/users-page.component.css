@@ -1,0 +1,147 @@
+.user-title {
+    font-size: 36px;
+}
+
+.user-title-container {
+    border-bottom: none;
+}
+
+/* User Table Styling */
+.center-table {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 20px;
+}
+
+.user-table {
+    border: 1px solid #DEB992;
+    border-collapse: separate;
+    max-width: 900px;
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.user-table th,
+.user-table td {
+    border: none;
+    padding: 18px 16px;
+    text-align: left;
+    font-size: 14px;
+    color: #DEB992;
+}
+
+.user-table tbody tr {
+    border-top: 1px solid #DEB992;
+    border-bottom: 1px solid #DEB992;
+}
+
+.user-table th {
+    font-size: 20px;
+    font-weight: 600;
+    color: #FFF;
+}
+
+/* Override for active and admin cells */
+.user-table td.active-status.status-yes,
+.user-table td.admin-status.status-yes {
+    color: #22DD2A;;
+    font-weight: bold;
+}
+
+.user-table td.active-status.status-no,
+.user-table td.admin-status.status-no {
+    color: #ff4646;
+    /* red for no */
+    font-weight: bold;
+}
+
+/* Button Styling */
+.add-user-button {
+    margin-top: 50px;
+    margin-left: 485px;
+}
+
+/* Modal Styling */
+.form-row {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 15px;
+}
+
+.form-col {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-row input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #a8abb1;
+    color: #e0d9ce;
+    padding: 5px 0;
+    font-size: 0.9rem;
+}
+
+.form-row input::placeholder {
+    color: #a8abb1;
+}
+
+.form-row input:focus {
+    outline: none;
+    border-bottom-color: #ff6236;
+}
+
+.dropdown {
+    width: 150px;
+    position: relative;
+    background: white;
+    border-radius: 5px;
+    color: #5e5d95;
+    font-size: 18px;
+    padding: 8px 12px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.dropdown-selected {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dropdown-list {
+    position: absolute;
+    top: 40px;
+    left: 0;
+    background: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    width: 100%;
+    z-index: 1000;
+}
+
+.dropdown-item {
+    padding: 8px 12px;
+    font-weight: 600;
+    color: #5e5d95;
+}
+
+.dropdown-item:hover {
+    background-color: #f0f0f0;
+}
+
+.error-message {
+    color: #ff4d4d;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+.dropdown:focus {
+  outline: none;
+}

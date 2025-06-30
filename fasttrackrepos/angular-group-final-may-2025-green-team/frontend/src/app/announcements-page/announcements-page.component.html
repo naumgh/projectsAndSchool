@@ -1,0 +1,32 @@
+<div class="main-background">
+    <app-navbar></app-navbar>
+
+    <div class="page-title">
+        <h2 class="header-text announcements-title">Announcements</h2>
+        <div class="button-row" *ngIf="isAdmin">
+            <button class="new-button blue-button" (click)="openCreateAnnouncement()">New</button>
+        </div>
+    </div>
+
+    <!-- Show modal if true -->
+    <app-modal *ngIf="showCreateAnnouncementModal" (close)="closeCreateAnnouncement()">
+        <h3>Create New Announcement</h3>
+        <form (ngSubmit)="submitNewAnnouncement()">
+            <label for="title">Title</label>
+            <input id="title" type="text" placeholder="Enter title" [(ngModel)]="title" name="title" required />
+
+            <label for="message">Message</label>
+            <textarea id="message" rows="4" placeholder="Enter message" [(ngModel)]="message" name="message"
+                required></textarea>
+            <div class="submit-button-row">
+                <button type="submit" class="blue-button">Submit</button>
+            </div>
+        </form>
+
+    </app-modal>
+
+    <div class="announcements">
+        <app-announcement-card *ngFor="let announcement of announcements"
+            [announcement]="announcement"></app-announcement-card>
+    </div>
+</div>

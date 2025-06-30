@@ -1,0 +1,48 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+      <img
+        [src]="swirlSrc"
+        height="40"
+        alt=""
+        loading="lazy"
+        (mouseenter)="onHover(true)"
+        (mouseleave)="onHover(false)"
+      />
+    </a>
+    <span class="navbar-text" *ngIf="admin">ADMIN: {{ user?.profile?.firstName }} {{ user?.profile?.lastName }}</span>
+    <span class="navbar-text" *ngIf="!admin && user"
+      >{{ user?.profile?.firstName }} {{ user?.profile?.lastName }}</span
+    >
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Home</a>
+        </li>
+        <li *ngIf="admin" class="nav-item">
+          <a class="nav-link" href="/select-company">Company</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/teams">Teams</a>
+        </li>
+        <li *ngIf="admin" class="nav-item">
+          <a class="nav-link" href="/users">Users</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Logout</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

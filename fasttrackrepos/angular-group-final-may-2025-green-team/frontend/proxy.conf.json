@@ -1,0 +1,20 @@
+{
+    "/company": {
+        "target": "http://localhost:8080",
+        "secure": false,
+        "changeOrigin": true,
+        "logLevel": "debug"
+    },
+    "/projects": {
+        "target": "http://localhost:8080",
+        "secure": false,
+        "changeOrigin": true,
+        "logLevel": "debug"
+    },
+    "/team-service": {
+        "target": "http://localhost:8080",
+        "secure": false,
+        "changeOrigin": true,
+        "logLevel": "debug"
+    }
+}
