@@ -1,0 +1,22 @@
+<div *ngIf="profile" class="profile-card">
+  <div class="profile-avatar">
+    <img [src]="profile.avatar_url" alt="{{ profile.name }}'s avatar" class="avatar"/>
+    <p>{{ profile.bio }}<p>
+  </div>
+  <div class="profile-details">
+  <p>Name: {{profile.name }}</p>
+  <p>Username: {{ profile.username }}</p>
+  <p>Location: {{ profile.location }}</p>
+  <p>Followers: {{ profile.followers }}</p>
+  <p>Following: {{ profile.following }}</p>
+  <p>Fav Language: {{profile['favorite-language']}}</p>
+  <p>Public repos: {{ profile['public-repos'] }}</p>
+  <p ngif="profile.titles.length">Titles:</p>
+  <ul  *ngIf="profile.titles.length">
+    <p *ngFor="let title of profile.titles">{{ title }}</p>
+  </ul>
+  <p>Total Stars: {{profile['total-stars']}}</p>
+  <p>Highest-starred repo: {{profile['highest-starred']}}</p>
+  <p>Perfect repos: {{profile['perfect-repos']}}</p>
+  </div>
+</div>

@@ -1,0 +1,40 @@
+<div
+  style="
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20vh;
+  "
+>
+  <div style="display: flex; flex-direction: row">
+    <app-text-input
+      (usernameChange)="receiveUsernameOne($event)"
+    ></app-text-input>
+    <p style="margin: 2vh 20px">VS</p>
+    <app-text-input
+      (usernameChange)="receiveUsernameTwo($event)"
+    ></app-text-input>
+  </div>
+  <br />
+  <br />
+  <button class="submit-button" (click)="onSubmit()">Duel</button>
+
+  <div *ngIf="error" style="color: red; font-weight: bold; margin-top: 1rem">
+    {{ error }}
+  </div>
+  <div *ngIf="profileOne && profileTwo" class="duel-results" style="display: flex; flex-direction: row; align-items: center; justify-content: center; gap: 4rem; margin-top: 2rem;">
+    <div style="display: flex; flex-direction: column; align-items: center;">
+    <app-profile-card [profile]="profileOne"></app-profile-card>
+    <p>Player 1 score: {{ calculateScore(profileOne) }}</p>
+  </div>
+    <p style="font-size: 2rem;">VS</p>
+    <div style="display: flex; flex-direction: column; align-items: center;">
+    <app-profile-card [profile]="profileTwo"></app-profile-card>
+    <p>Player 2 score: {{ calculateScore(profileTwo) }}</p>
+  </div>
+  </div>
+  <div *ngIf="winner" class="duel-winner" style="margin-top: 2rem; font-size: 1.5rem; font-weight: bold;">
+    
+    <p>The winner is: {{ winner }}!</p>
+  </div>
+</div>
