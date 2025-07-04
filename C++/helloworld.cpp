@@ -59,6 +59,8 @@ int main()
     // namespace provides a solution for preventing name conflicts in large projects. each entity needs a unique name. a namespace allows for
     // identically named entities as long as the namespaces are different.
 
+    std::cout << "Value from first namespace: " << first::value << std::endl;
+
     return 0;
 }
 
